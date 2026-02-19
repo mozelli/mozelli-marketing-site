@@ -1,0 +1,55 @@
+---
+import Container from "../../components/ui/layouts/Container.astro";
+import LeadForm from "../ui/layouts/LeadForm.astro";
+---
+
+<div class="bg-background py-32">
+  <Container>
+    <section>
+      <div class="flex gap-6">
+        <div class="w-5/9 flex flex-col justify-between">
+          <h2 class="text-3xl
+          text-primary
+          font-semibold">
+            Seu site não é apenas um link.
+
+            <br /><br /><span
+              class="text-8xl font-black tracking-tight
+           bg-linear-to-r from-primary/60 via-primary to-primary/60
+           bg-clip-text text-transparent"
+            >
+              É a sua maior vitrine!
+            </span>
+          </h2>
+          <p class="text-foreground font-medium">
+            Criamos <strong class="text-primary">Sites Institucionais</strong>, <strong
+              class="text-primary">Página de Venda</strong
+            >, <strong class="text-primary">Landing Pages</strong> e
+            <strong class="text-primary">Blogs</strong> de alta performance, otimizados
+            para SEO e 100% responsivos. Design exclusivo para destacar sua marca
+            no digital.
+          </p>
+          <div class="flex gap-9">
+            <a href="#solucoes" class="w-full">
+              <button
+                class="flex items-center justify-center gap-2 px-5 py-3 w-full text-sm font-semibold bg-accent/80 hover:bg-accent text-accent-foreground hover:cursor-pointer border rounded-sm uppercase"
+              >
+                Soluções
+              </button>
+            </a>
+            <a href="#servicos" class="w-full">
+              <button
+                class="px-5 py-3 w-full text-sm font-semibold bg-secondary/80 hover:bg-secondary text-secondary-foreground hover:cursor-pointer border rounded-sm uppercase"
+              >
+                SERVIÇOS
+              </button>
+            </a>
+          </div>
+        </div>
+        <div class="flex flex-col w-4/9 px-9">
+          <LeadForm />
+        </div>
+      </div>
+    </section>
+  </Container>
+</div>

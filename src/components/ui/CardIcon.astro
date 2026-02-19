@@ -1,0 +1,17 @@
+---
+const CardIconProps = Astro.props;
+---
+
+<div
+  class="pb-2 border border-primary rounded-md hover:border hover:border-primary-foreground/20 transition-all p-2"
+>
+  <div class="pb-2">
+    <slot />
+  </div>
+  <div class="">
+    <h3 class="text-secondary font-semibold pb-2">{CardIconProps.title}</h3>
+    <p class="text-background/70 text-sm">
+      {CardIconProps.text}
+    </p>
+  </div>
+</div>

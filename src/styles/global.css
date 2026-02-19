@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: #ffffff;
+  --foreground: 1A202C;
+  --primary: #384767;
+  --primary-foreground: #ffffff;
+  --secondary: #e2e8f0;
+  --secondary-foreground: oklch(0.208 0.042 265.755);
+  --muted-foreground: #64748b;
+  --accent: #facc15;
+  --accent-foreground: var(--primary);
+}
+
+.dark {
+  --background: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.929 0.013 255.508);
+  --primary-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.279 0.041 260.031);
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+  --muted: oklch(0.279 0.041 260.031);
+  --muted-foreground: oklch(0.704 0.04 256.788);
+  --accent: oklch(0.279 0.041 260.031);
+  --accent-foreground: oklch(0.984 0.003 247.858);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    @apply bg-background text-foreground;
+  }
+  form > h3 {
+    color: var(--primary-foreground);
+  }
+  input {
+    background-color: var(--primary-foreground);
+    color: var(--foreground);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+  }
+  label {
+    color: var(--primary-foreground);
+    margin-bottom: 4px;
+    font-size: 0.8em;
+  }
+  label > span {
+    color: var(--accent);
+  }
+  select {
+    background-color: var(--primary-foreground);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+}
+
+/* noto-sans-sora-sompeng-latin-wght-normal */
+@font-face {
+  font-family: "Noto Sans Sora Sompeng Variable";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 700;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/noto-sans-sora-sompeng:vf@latest/latin-wght-normal.woff2)
+    format("woff2-variations");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Conthrax";
+  src: url("/fonts/Conthrax-SemiBold.otf") format("otf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

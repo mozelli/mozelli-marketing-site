@@ -1,0 +1,89 @@
+---
+import Container from "../ui/layouts/Container.astro";
+import CardIcon from "../ui/CardIcon.astro";
+import ListChecks from "phosphor-astro/ListChecks.astro";
+import Layout from "phosphor-astro/Layout.astro";
+import Code from "phosphor-astro/Code.astro";
+import GoogleChromeLogo from "phosphor-astro/GoogleChromeLogo.astro";
+import TestTube from "phosphor-astro/TestTube.astro";
+import Headset from "phosphor-astro/Headset.astro";
+---
+
+<div class="w-full bg-primary py-16">
+  <Container>
+    <section>
+      <div class="flex">
+        <div class="flex flex-col w-1/3 pr-8">
+          <h2 class="text-accent uppercase font-black pb-4 myFont text-sm">
+            Metodologia Mozelli
+          </h2>
+          <h3 class="text-primary-foreground text-3xl font-bold pb-4">
+            Como transformamos sua ideia em realidade
+          </h3>
+          <p class="text-primary-foreground pb-5">
+            Nosso processo é transparente e colaborativo. Cada etapa é pensada
+            para garantir a excelência técnica e estética do seu projeto.
+          </p>
+          <div class="border px-5 py-6 rounded-md border-sky-300 bg-sky-800">
+            <p class="text-3xl font-black myFont text-slate-300">100%</p>
+            <p class="uppercase font-bold text-sky-500">Foco em Performance</p>
+          </div>
+        </div>
+        <div class="flex w-2/3">
+          <div class="grid grid-cols-2 grid-rows-3 gap-8">
+            <CardIcon
+              title="Briefing e Estratégia"
+              text="Entendemos profundamente seu negócio, público-alvo e objetivos para traçar o melhor caminho."
+              ><ListChecks
+                class="w-16 h-auto text-accent/50 hover:text-accent transition-all"
+              /></CardIcon
+            >
+            <CardIcon
+              title="Design Exclusivo"
+              text="Criamos um protótipo visual alinhado à sua identidade de marca. Nada de templates prontos.
+
+"
+              ><Layout
+                class="w-16 h-auto text-accent/50 hover:text-accent transition-all"
+              /></CardIcon
+            >
+            <CardIcon
+              title="Desenvolvimento Ágil"
+              text="Codificamos seu site utilizando as tecnologias mais modernas, garantindo leveza e velocidade."
+              ><Code
+                class="w-16 h-auto text-accent/50 hover:text-accent transition-all"
+              /></CardIcon
+            >
+            <CardIcon
+              title="SEO e Otimização"
+              text="Implementamos as melhores práticas de SEO para que seu site seja encontrado pelo Google."
+              ><GoogleChromeLogo
+                class="w-16 h-auto text-accent/50 hover:text-accent transition-all"
+              /></CardIcon
+            >
+            <CardIcon
+              title="Testes e Lançamento"
+              text="Testamos em todos os dispositivos e navegadores antes de colocar seu projeto no ar."
+              ><TestTube
+                class="w-16 h-auto text-accent/50 hover:text-accent transition-all"
+              /></CardIcon
+            >
+            <CardIcon
+              title="Suporte Contínuo"
+              text="Após o lançamento, continuamos ao seu lado para garantir que tudo funcione perfeitamente."
+              ><Headset
+                class="w-16 h-auto text-accent/50 hover:text-accent transition-all"
+              /></CardIcon
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+  </Container>
+</div>
+
+<style>
+  .myFont {
+    font-family: "Conthrax";
+  }
+</style>

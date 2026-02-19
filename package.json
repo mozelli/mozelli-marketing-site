@@ -1,7 +1,7 @@
 {
   "name": "mozelli-marketing-site",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -9,6 +9,18 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.17.1"
+    "@fontsource/noto-sans-sora-sompeng": "^5.2.8",
+    "@maskito/core": "^5.1.1",
+    "@tailwindcss/vite": "^4.1.18",
+    "astro": "^5.17.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "phosphor-astro": "^2.1.0",
+    "radix-ui": "^1.4.3",
+    "tailwind-merge": "^3.4.1",
+    "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "prettier-plugin-astro": "^0.14.1"
   }
 }

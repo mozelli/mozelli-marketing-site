@@ -1,0 +1,13 @@
+---
+const SocialIconProps = Astro.props;
+---
+
+<div class="flex items-center gap-2">
+  <a
+    href={SocialIconProps.link}
+    title={SocialIconProps.title}
+    target="_blank"
+    class="text-primary hover:text-primary/80 transition-all"><slot /></a
+  >
+  <span class="text-sm text-secondary-foreground">{SocialIconProps.title}</span>
+</div>

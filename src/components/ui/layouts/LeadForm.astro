@@ -1,0 +1,69 @@
+---
+import siteConfig from "../../../config/siteConfig.json";
+
+const metadata = "LEAD-FORM," + siteConfig[0].matadata.url;
+---
+
+<form action="" class="bg-primary rounded-md p-9">
+  <input type="hidden" name="metadata" value={metadata} />
+  <h3 class="text-xl font-bold">Solicite um Orçamento Gratuito!</h3>
+  <div class="flex flex-col">
+    <div class="py-2 flex flex-col">
+      <label for="name">Seu nome <span>*</span></label>
+      <input type="text" id="name" name="name" />
+    </div>
+    <div class="py-2 flex flex-col">
+      <label for="email">Seu melhor e-mail <span>*</span></label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="email@dominio.com.br"
+      />
+    </div>
+    <div class="py-2 flex gap-2">
+      <div class="flex flex-col">
+        <label for="ddd">DDD<span>*</span></label>
+        <input
+          type="text"
+          id="ddd"
+          name="ddd"
+          maxlength="2"
+          class="w-8"
+          placeholder="99"
+        />
+      </div>
+      <div class="flex flex-col">
+        <label for="whatsapp">WhatsApp <span>*</span></label>
+        <input type="text" id="whatsapp" placeholder="9 9999-9999" />
+      </div>
+    </div>
+  </div>
+  <div class="py-2 flex flex-col">
+    <label for="business">Ramo de atividade <span>*</span></label>
+    <select name="business" id="business" name="business" class="mt-1">
+      <option value="null">Selecione</option>
+      <option value="SAUDE-E-BEM-ESTAR">Saúde e Bem-Estar</option>
+      <option value="CONSTRUCAO-E-REFORMAS">Construção e Reformas</option>
+      <option value="COMERCIO">Comércio</option>
+      <option value="ALIMENTACAO">Alimentação</option>
+      <option value="AUTOMOTIVO">Automotivo</option>
+      <option value="BELEZA">Beleza</option>
+      <option value="EDUCACAO">Educação</option>
+      <option value="HOSPEDAGEM-E-TURISMO">Turismo e Hospedagem</option>
+      <option value="INDUSTRIA">Indústria</option>
+      <option value="TECNOLOGIA">Tecnologia</option>
+      <option value="EVENTOS">Eventos</option>
+      <option value="PROFISSIONAL-LIBERAL">Profissional Liberal</option>
+      <option value="OUTROS">Outros</option>
+    </select>
+  </div>
+
+  <div class="py-2 flex flex-col">
+    <button
+      type="submit"
+      class="uppercase hover:cursor-pointer bg-accent/80 hover:bg-accent transition-all text-accent-foreground text-sm font-bold px-5 py-3 rounded-sm shadow-secondary-foreground shadow-md"
+      >Solicitar Orçamento gratuito</button
+    >
+  </div>
+</form>

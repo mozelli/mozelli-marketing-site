@@ -1,0 +1,50 @@
+---
+import { Image } from "astro:assets";
+import Container from "../ui/layouts/Container.astro";
+import ImageSection from "../../../public/images/criacao_de_sites.jpg";
+import ListBox from "../ui/ListBox.astro";
+---
+
+<div class="w-full bg-secondary py-16" id="solucoes">
+  <Container>
+    <section>
+      <div class="flex flex-col items-center">
+        <h2 class="text-accent-foreground uppercase font-black pb-4 myFont">
+          Soluções
+        </h2>
+        <h3 class="text-primary text-5xl font-bold">
+          Soluções digitais sob medida para seu negócio
+        </h3>
+      </div>
+      <div class="flex pt-8">
+        <div class="w-1/2">
+          <Image
+            src={ImageSection}
+            alt="Um programador em frente a um computador configurando um website."
+            width={500}
+            height={463}
+            class="rounded-md"
+          />
+        </div>
+        <div class="w-1/2">
+          <p class="text-secondary-foreground">
+            Hoje, o site é o <strong class="text-primary"
+              >principal ponto de decisão do cliente</strong
+            >. Antes de comprar, contratar ou entrar em contato, ele pesquisa,
+            compara e analisa sua presença digital.
+          </p>
+          <p class="text-secondary-foreground">
+            Um site profissional permite que você:
+          </p>
+          <ListBox />
+        </div>
+      </div>
+    </section>
+  </Container>
+</div>
+
+<style>
+  .myFont {
+    font-family: "Conthrax";
+  }
+</style>

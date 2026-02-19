@@ -1,5 +1,17 @@
 {
+  "compilerOptions": {
+    "baseUrl": "http://localhost:4321",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
   "extends": "astro/tsconfigs/strict",
   "include": [".astro/types.d.ts", "**/*"],
   "exclude": ["dist"]
 }
+
+//{
+//  "extends": "astro/tsconfigs/strict",
+//  "include": [".astro/types.d.ts", "**/*"],
+//  "exclude": ["dist"]
+//}
