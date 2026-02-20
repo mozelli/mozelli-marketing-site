@@ -4,45 +4,105 @@ import siteConfig from "../../../config/siteConfig.json";
 const metadata = "LEAD-FORM," + siteConfig[0].matadata.url;
 ---
 
-<form action="" class="bg-primary rounded-md p-9">
+<style>
+  .show-errors input:invalid,
+  .show-errors select:invalid {
+    border: 2px solid #ef4444 !important;
+    background-color: #fef2f2;
+  }
+  input:focus,
+  select:focus {
+    ring: 2px;
+    ring-color: #fbbf24;
+  }
+</style>
+
+<form
+  action="/api/contact"
+  method="POST"
+  class="bg-primary rounded-md p-9"
+  id="lead-form"
+>
+  <div class="hidden" aria-hidden="true">
+    <input type="text" name="_honey" tabindex="-1" autocomplete="off" />
+  </div>
   <input type="hidden" name="metadata" value={metadata} />
+
   <h3 class="text-xl font-bold">Solicite um Orçamento Gratuito!</h3>
+  <p id="form-message" class="text-sm pt-2"></p>
   <div class="flex flex-col">
     <div class="py-2 flex flex-col">
-      <label for="name">Seu nome <span>*</span></label>
-      <input type="text" id="name" name="name" />
+      <label for="name" class="text-sm font-medium text-primary-foreground"
+        >Seu nome <span>*</span></label
+      >
+      <input
+        type="text"
+        id="name"
+        name="name"
+        class="text-sm rounded-sm border-none p-2 focus:ring-2 focus:ring-accent outline-none bg-background text-foreground"
+        required
+      />
     </div>
     <div class="py-2 flex flex-col">
-      <label for="email">Seu melhor e-mail <span>*</span></label>
+      <label for="email" class="text-sm font-medium text-primary-foreground"
+        >Seu melhor e-mail <span>*</span></label
+      >
       <input
         type="email"
         id="email"
         name="email"
         placeholder="email@dominio.com.br"
+        class="text-sm rounded-sm border-none p-2 focus:ring-2 focus:ring-accent outline-none bg-background text-foreground"
+        required
       />
     </div>
     <div class="py-2 flex gap-2">
       <div class="flex flex-col">
-        <label for="ddd">DDD<span>*</span></label>
+        <label for="ddd" class="text-sm font-medium text-primary-foreground"
+          >DDD<span>*</span></label
+        >
         <input
           type="text"
           id="ddd"
           name="ddd"
           maxlength="2"
-          class="w-8"
           placeholder="99"
+          class="rounded-sm w-full max-w-12 text-center border-none p-2 focus:ring-2 focus:ring-accent outline-none bg-background text-foreground text-sm"
+          required
+          inputmode="numeric"
+          pattern="[0-9]{2}"
         />
       </div>
       <div class="flex flex-col">
-        <label for="whatsapp">WhatsApp <span>*</span></label>
-        <input type="text" id="whatsapp" placeholder="9 9999-9999" />
+        <label
+          for="whatsapp"
+          class="text-sm font-medium text-primary-foreground"
+          >WhatsApp <span>*</span></label
+        >
+        <input
+          type="text"
+          id="whatsapp"
+          placeholder="9 9999-9999"
+          class="rounded-sm border-none p-2 focus:ring-2 focus:ring-accent outline-none bg-background text-foreground text-sm"
+          required
+          maxlength="11"
+          inputmode="numeric"
+        />
       </div>
     </div>
   </div>
   <div class="py-2 flex flex-col">
-    <label for="business">Ramo de atividade <span>*</span></label>
-    <select name="business" id="business" name="business" class="mt-1">
-      <option value="null">Selecione</option>
+    <label for="business" class="text-sm font-medium text-primary-foreground"
+      >Ramo de atividade <span>*</span></label
+    >
+    <select
+      name="business"
+      id="business"
+      name="business"
+      class="mt-1 rounded-sm border-none p-2 text-black focus:ring-2 focus:ring-accent outline-none appearance-none bg-white text-sm"
+      required
+    >
+      <option value="" disabled selected>Selecione</option>
       <option value="SAUDE-E-BEM-ESTAR">Saúde e Bem-Estar</option>
       <option value="CONSTRUCAO-E-REFORMAS">Construção e Reformas</option>
       <option value="COMERCIO">Comércio</option>
@@ -62,8 +122,55 @@ const metadata = "LEAD-FORM," + siteConfig[0].matadata.url;
   <div class="py-2 flex flex-col">
     <button
       type="submit"
+      id="submit-btn"
       class="uppercase hover:cursor-pointer bg-accent/80 hover:bg-accent transition-all text-accent-foreground text-sm font-bold px-5 py-3 rounded-sm shadow-secondary-foreground shadow-md"
       >Solicitar Orçamento gratuito</button
     >
   </div>
 </form>
+
+<script>
+  const form = document.getElementById("lead-form") as HTMLFormElement;
+  const messageEl = document.getElementById("form-message");
+  const btn = document.getElementById("submit-btn") as HTMLButtonElement;
+
+  form: addEventListener(
+    "invalid",
+    (e) => {
+      form.classList.add("show-errors");
+    },
+    true,
+  );
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    btn.disabled = true;
+    btn.innerText = "Enviando...";
+
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData);
+
+    if (data._honey) {
+      console.warn("Bot detected!");
+      return;
+    }
+
+    try {
+      if (messageEl) {
+        alert("Solicitação enviada com sucesso!");
+      }
+      form.reset();
+      form.classList.remove("show-errors");
+    } catch (err) {
+      if (messageEl) {
+        alert(
+          "Erro ao enviar a solicitação de orçamento. Tente novamente mais tarde.",
+        );
+      }
+    } finally {
+      btn.disabled = false;
+      btn.innerText = "Solicitar Orçamento Gratuito";
+    }
+  });
+</script>

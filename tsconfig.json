@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "http://localhost:4321",
+    "baseUrl": "https://mozellimarketing.com.br",
     "paths": {
       "@/*": ["./src/*"]
     }

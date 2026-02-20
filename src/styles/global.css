@@ -81,27 +81,6 @@
   form > h3 {
     color: var(--primary-foreground);
   }
-  input {
-    background-color: var(--primary-foreground);
-    color: var(--foreground);
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 0.8em;
-  }
-  label {
-    color: var(--primary-foreground);
-    margin-bottom: 4px;
-    font-size: 0.8em;
-  }
-  label > span {
-    color: var(--accent);
-  }
-  select {
-    background-color: var(--primary-foreground);
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 0.9em;
-  }
 }
 
 /* noto-sans-sora-sompeng-latin-wght-normal */

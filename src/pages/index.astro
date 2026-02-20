@@ -7,23 +7,54 @@ import Solutions from "../components/sections/Solutions.astro";
 import Hero from "../components/sections/Hero.astro";
 import Layout from "../layouts/Layout.astro";
 import Container from "../components/ui/layouts/Container.astro";
+import Logo from "../../public/images/logo-site-mozelli-marketing-300.svg";
 ---
 
 <Layout>
-  <div
+  <Container>
+    <div class="flex flex-col items-center justify-center w-full h-screen">
+      <h1 class="text-2xl">Mozelli Marketing</h1>
+      <p class="text-pink-600">Site em Manutenção.</p>
+
+      <p class="text-sm pt-10">
+        <strong>E-mail: </strong><a
+          href="tel:+5531998855602"
+          class="text-secondary-foreground">+55 (31) 9 9885-5602</a
+        >
+      </p>
+      <p class="text-sm">
+        <strong>WhatsApp: </strong><a
+          href="mailto:contato@mozellimarketing.com.br"
+          class="text-secondary-foreground">contato@mozellimarketing.com.br</a
+        >
+      </p>
+    </div>
+  </Container>
+</Layout>
+
+<style>
+  h1 {
+    font-family: "Conthrax";
+  }
+</style>
+
+{
+  /*
+<div
     class="bg-white/50 backdrop-blur-md border-b shadow-sm fixed w-full left-0 top-0 z-50"
   >
     <Container>
       <Header />
     </Container>
   </div>
-  <mai class="pt-24">
+  <main class="pt-24 w-full">
     <Hero />
     <Solutions />
     <Products />
     <Metodology />
-  </mai>
+  </main>
   <div class="">
     <Footer />
   </div>
-</Layout>
+*/
+}

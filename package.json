@@ -18,7 +18,8 @@
     "phosphor-astro": "^2.1.0",
     "radix-ui": "^1.4.3",
     "tailwind-merge": "^3.4.1",
-    "tailwindcss": "^4.1.18"
+    "tailwindcss": "^4.1.18",
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "prettier-plugin-astro": "^0.14.1"
