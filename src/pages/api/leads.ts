@@ -1,5 +1,6 @@
 export const prerender = false;
 //resolve o bug com a Vercel
+//força novo deploy
 
 import type { APIRoute } from "astro";
 import { createClient } from "@supabase/supabase-js";
