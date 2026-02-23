@@ -4,19 +4,6 @@ import siteConfig from "../../../config/siteConfig.json";
 const metadata = "LEAD-FORM," + siteConfig[0].matadata.url;
 ---
 
-<style>
-  .show-errors input:invalid,
-  .show-errors select:invalid {
-    border: 2px solid #ef4444 !important;
-    background-color: #fef2f2;
-  }
-  input:focus,
-  select:focus {
-    ring: 2px;
-    ring-color: #fbbf24;
-  }
-</style>
-
 <form
   action="/api/contact"
   method="POST"
@@ -81,11 +68,12 @@ const metadata = "LEAD-FORM," + siteConfig[0].matadata.url;
         >
         <input
           type="text"
+          name="whatsapp"
           id="whatsapp"
-          placeholder="9 9999-9999"
+          placeholder="99999-9999"
           class="rounded-sm border-none p-2 focus:ring-2 focus:ring-accent outline-none bg-background text-foreground text-sm"
           required
-          maxlength="11"
+          maxlength="10"
           inputmode="numeric"
         />
       </div>
@@ -130,47 +118,74 @@ const metadata = "LEAD-FORM," + siteConfig[0].matadata.url;
 </form>
 
 <script>
-  const form = document.getElementById("lead-form") as HTMLFormElement;
-  const messageEl = document.getElementById("form-message");
-  const btn = document.getElementById("submit-btn") as HTMLButtonElement;
+  import { LeadSchema } from "../../../lib/validation/lead-schema";
 
-  form: addEventListener(
-    "invalid",
-    (e) => {
-      form.classList.add("show-errors");
-    },
-    true,
-  );
+  const form = document.getElementById("lead-form") as HTMLFormElement;
+  const btn = document.getElementById("submit-btn") as HTMLButtonElement;
+  const whatsappInput = document.getElementById("whatsapp") as HTMLInputElement;
+  const dddInput = document.getElementById("ddd") as HTMLInputElement;
 
   form?.addEventListener("submit", async (e) => {
     e.preventDefault();
 
+    // Feedback visual de carregamento
     btn.disabled = true;
     btn.innerText = "Enviando...";
 
+    // 1. Coleta e Limpeza dos dados
     const formData = new FormData(form);
-    const data = Object.fromEntries(formData);
+    const rawData = Object.fromEntries(formData);
 
-    if (data._honey) {
-      console.warn("Bot detected!");
+    const dataToValidate = {
+      ...rawData,
+      whatsapp: whatsappInput.value.replace(/\D/g, ""), // Limpa traços para o Zod
+      ddd: dddInput.value.replace(/\D/g, "")
+    };
+
+    // 2. Validação com Zod no Cliente
+    const result = LeadSchema.safeParse(dataToValidate);
+
+    if (!result.success) {
+      console.error("❌ Erro de Validação (Zod):", result.error.format()); // MOSTRA O ERRO NO CONSOLE
+      
+      result.error.issues.forEach((issue) => {
+        const fieldName = issue.path[0];
+        const input = form.querySelector(`[name="${fieldName}"]`);
+        input?.classList.add("ring-2", "ring-red-500");
+      });
+
+      // Destrava o botão para o usuário tentar de novo
+      btn.disabled = false;
+      btn.innerText = "Solicitar Orçamento gratuito";
       return;
     }
 
+    // 3. Envio para a API
     try {
-      if (messageEl) {
-        alert("Solicitação enviada com sucesso!");
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(result.data),
+      });
+
+      const responseData = await response.json();
+
+      if (!response.ok) {
+        // MOSTRA ERROS VINDOS DO BACKEND/SUPABASE
+        console.error("❌ Erro no Servidor (API):", responseData);
+        throw new Error(responseData.message || "Erro desconhecido no servidor");
       }
+
+      console.log("✅ Sucesso!", responseData);
       form.reset();
-      form.classList.remove("show-errors");
+      alert("Formulário enviado com sucesso!");
+
     } catch (err) {
-      if (messageEl) {
-        alert(
-          "Erro ao enviar a solicitação de orçamento. Tente novamente mais tarde.",
-        );
-      }
+      console.error("🚨 Erro Crítico na Requisição:", err); // MOSTRA ERROS DE CONEXÃO
     } finally {
+      // Sempre volta o botão ao normal
       btn.disabled = false;
-      btn.innerText = "Solicitar Orçamento Gratuito";
+      btn.innerText = "Solicitar Orçamento gratuito";
     }
   });
 </script>

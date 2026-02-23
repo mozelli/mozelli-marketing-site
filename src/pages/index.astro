@@ -11,7 +11,33 @@ import Logo from "../../public/images/logo-site-mozelli-marketing-300.svg";
 ---
 
 <Layout>
-  <Container>
+  <div
+    class="bg-white/50 backdrop-blur-md border-b shadow-sm fixed w-full left-0 top-0 z-50"
+  >
+    <Container>
+      <Header />
+    </Container>
+  </div>
+  <main class="pt-24 w-full">
+    <Hero />
+    <Solutions />
+    <Products />
+    <Metodology />
+  </main>
+  <div class="">
+    <Footer />
+  </div>
+</Layout>
+
+<style>
+  h1 {
+    font-family: "Conthrax";
+  }
+</style>
+
+{
+  /*
+ <Container>
     <div class="flex flex-col items-center justify-center w-full h-screen">
       <h1 class="text-2xl lg:text-3xl">Mozelli Marketing</h1>
       <p class="text-pink-600">Site em Manutenção.</p>
@@ -30,31 +56,5 @@ import Logo from "../../public/images/logo-site-mozelli-marketing-300.svg";
       </p>
     </div>
   </Container>
-</Layout>
-
-<style>
-  h1 {
-    font-family: "Conthrax";
-  }
-</style>
-
-{
-  /*
-<div
-    class="bg-white/50 backdrop-blur-md border-b shadow-sm fixed w-full left-0 top-0 z-50"
-  >
-    <Container>
-      <Header />
-    </Container>
-  </div>
-  <main class="pt-24 w-full">
-    <Hero />
-    <Solutions />
-    <Products />
-    <Metodology />
-  </main>
-  <div class="">
-    <Footer />
-  </div>
 */
 }

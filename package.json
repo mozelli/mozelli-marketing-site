@@ -11,6 +11,7 @@
   "dependencies": {
     "@fontsource/noto-sans-sora-sompeng": "^5.2.8",
     "@maskito/core": "^5.1.1",
+    "@supabase/supabase-js": "^2.97.0",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.17.1",
     "class-variance-authority": "^0.7.1",
