@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/vercel": "^9.0.4",
     "@fontsource/noto-sans-sora-sompeng": "^5.2.8",
     "@maskito/core": "^5.1.1",
     "@supabase/supabase-js": "^2.97.0",
