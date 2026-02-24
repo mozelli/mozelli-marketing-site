@@ -70,7 +70,7 @@ export const POST: APIRoute = async ({ request }) => {
     console.error("Erro no servidor: ", err);
     return new Response(
       JSON.stringify({
-        message: "Erro ao salvar no banco de dados",
+        message: "❌ Algo deu errado ao tentar salvar um novo lead.",
         details: err,
       }),
       { status: 500 },
