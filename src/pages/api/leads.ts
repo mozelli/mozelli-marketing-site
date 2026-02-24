@@ -25,7 +25,7 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     // 2. Salvar no Supabase
-    /*const { data, error } = await supabase.from("leads").insert([
+    const { data, error } = await supabase.from("leads").insert([
       {
         name: result.data.name,
         email: result.data.email,
@@ -36,7 +36,7 @@ export const POST: APIRoute = async ({ request }) => {
       },
     ]);
 
-    if (error) throw error;*/
+    if (error) throw error;
 
     // 3. (Opcional) Aqui você poderia disparar o e-mail do Resend também...
 
