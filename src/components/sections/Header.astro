@@ -95,20 +95,28 @@ import Container from "../ui/layouts/Container.astro";
           title="Home page"
           class="text-primary"
         >
-          <h1 class="flex flex-col font-bold logo">
+          <h1 class="flex flex-col md:hidden font-bold logo text-lg">
             Mozelli Marketing <br /><span class="text-muted-foreground text-xs"
               >Criação de Sites em <br />Belo Horizonte</span
+            >
+          </h1>
+          <h1 class="hidden md:flex md:flex-col font-bold logo text-xl">
+            Mozelli Marketing <br /><span class="text-muted-foreground text-xs"
+              >Criação de Sites em Belo Horizonte</span
             >
           </h1>
         </a>
       </div>
 
-      <button
-        class="rounded-full p-2 bg-lime-600 text-primary-foreground hover:cursor-pointer md:rounded-sm"
+      <a
+        href="https://wa.me/"
+        target="_blank"
+        title="Chamar no WhatsApp"
+        class="rounded-full p-2 bg-lime-600 md:bg-primary md:font-bold md:px-3 text-primary-foreground hover:cursor-pointer md:rounded-sm"
       >
-        <WhatsAppLogo class="w-8 h-auto" />
-        <span class="hidden">Fale Conosco</span>
-      </button>
+        <WhatsAppLogo class="w-8 h-auto md:hidden" />
+        <span class="hidden md:block">Fale Conosco</span>
+      </a>
     </nav>
   </header>
 </Container>
