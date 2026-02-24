@@ -11,10 +11,8 @@
   "dependencies": {
     "@astrojs/vercel": "^9.0.4",
     "@fontsource/noto-sans-sora-sompeng": "^5.2.8",
-    "@maskito/core": "^5.1.1",
     "@supabase/supabase-js": "^2.97.0",
     "@tailwindcss/vite": "^4.1.18",
-    "@vercel/speed-insights": "^1.3.1",
     "astro": "^5.17.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
