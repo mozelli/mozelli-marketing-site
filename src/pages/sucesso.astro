@@ -1,0 +1,32 @@
+---
+import Header from "../components/sections/Header.astro";
+import Container from "../components/ui/layouts/Container.astro";
+import Layout from "../layouts/Layout.astro";
+import LayoutSuccess from "../layouts/LayoutSuccess.astro";
+---
+
+<LayoutSuccess title="Parabéns!">
+  <div
+    class="bg-white/50 backdrop-blur-md border-b shadow-sm fixed w-full left-0 top-0 z-50"
+  >
+    <Container>
+      <Header />
+    </Container>
+  </div>
+  <main
+    class="flex flex-col items-center justify-center min-h-screen text-center px-4"
+  >
+    <h1 class="text-4xl font-bold text-green-600">
+      🚀 Recebemos sua solicitação!
+    </h1>
+    <p class="mt-4 text-lg text-gray-700">
+      Em breve um especialista entrará em contato com você.
+    </p>
+    <a
+      href="/"
+      class="mt-8 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+    >
+      Voltar para a Home
+    </a>
+  </main>
+</LayoutSuccess>

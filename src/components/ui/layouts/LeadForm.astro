@@ -194,8 +194,7 @@ const metadata = "LEAD-FORM," + siteConfig[0].matadata.url;
       }
 
       console.log("✅ Sucesso!", responseData);
-      form.reset();
-      alert("Formulário enviado com sucesso!");
+      window.location.href = "/sucesso";
     } catch (err) {
       console.error("🚨 Erro Crítico na Requisição:", err); // MOSTRA ERROS DE CONEXÃO
     } finally {
