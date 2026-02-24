@@ -1,111 +1,117 @@
 ---
 import { Image } from "astro:assets";
 import Icon from "../../../public/images/icon-mozelli-marketing.svg";
+import Phone from "phosphor-astro/Phone.astro";
+import WhatsAppLogo from "phosphor-astro/WhatsappLogo.astro";
+import Container from "../ui/layouts/Container.astro";
 ---
 
-<header class="h-17 md:px-5 px-3">
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "serviceType": "Criação de Sites e Landing Pages",
-      "provider": {
-        "@type": "Organization",
-        "name": "Mozelli Marketing",
-        "url": "https://mozellimarketing.com.br",
-        "logo": "https://mozellimarketing.com.br/logo.png"
-      },
-      "areaServed": {
-        "@type": "Country",
-        "name": "Brasil"
-      },
-      "description": "Desenvolvimento de Sites profissionais e Landing Pages de alta conversão focadas em SEO e performance.",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "45",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Serviços de Desenvolvimento",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Criação de Sites Institucionais"
+<Container>
+  <header class="h-24 p-3 w-full">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Criação de Sites e Landing Pages",
+        "provider": {
+          "@type": "Organization",
+          "name": "Mozelli Marketing",
+          "url": "https://mozellimarketing.com.br",
+          "logo": "https://mozellimarketing.com.br/logo.png"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Brasil"
+        },
+        "description": "Desenvolvimento de Sites profissionais e Landing Pages de alta conversão focadas em SEO e performance.",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "45",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Serviços de Desenvolvimento",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Criação de Sites Institucionais"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Criação de Landing Pages"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Gestão de Tráfego"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Otimização de SEO"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Criação de Identidade Visual"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Gestão de Redes Sociais"
+              }
             }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Criação de Landing Pages"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Gestão de Tráfego"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Otimização de SEO"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Criação de Identidade Visual"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Gestão de Redes Sociais"
-            }
-          }
-        ]
+          ]
+        }
       }
-    }
-  </script>
-  <nav class="flex items-center justify-between pt-3">
-    <div class="flex items-center">
-      <a href="">
-        <Image
-          src={Icon}
-          class="w-10 pr-2"
-          alt="Um funil, ícone da Mozelli Marketing."
-        />
-      </a>
-      <a
-        href="https://mozellimarketing.com.br"
-        title="Home page"
-        class="text-primary"
-      >
-        <h1 class="flex flex-col text-2xl font-bold logo">
-          Mozelli Marketing <br /><span class="text-muted-foreground text-xs"
-            >Criação de Sites em Belo Horizonte</span
-          >
-        </h1>
-      </a>
-    </div>
+    </script>
+    <nav class="flex items-center justify-between pt-3">
+      <div class="flex items-center">
+        <a href="">
+          <Image
+            src={Icon}
+            class="w-10 pr-2"
+            alt="Um funil, ícone da Mozelli Marketing."
+          />
+        </a>
+        <a
+          href="https://mozellimarketing.com.br"
+          title="Home page"
+          class="text-primary"
+        >
+          <h1 class="flex flex-col font-bold logo">
+            Mozelli Marketing <br /><span class="text-muted-foreground text-xs"
+              >Criação de Sites em <br />Belo Horizonte</span
+            >
+          </h1>
+        </a>
+      </div>
 
-    <button
-      class="uppercase text-sm px-5 py-3 font-semibold bg-primary text-primary-foreground hover:cursor-pointer rounded-sm"
-    >
-      Fale Conosco
-    </button>
-  </nav>
-</header>
+      <button
+        class="rounded-full p-2 bg-lime-600 text-primary-foreground hover:cursor-pointer md:rounded-sm"
+      >
+        <WhatsAppLogo class="w-8 h-auto" />
+        <span class="hidden">Fale Conosco</span>
+      </button>
+    </nav>
+  </header>
+</Container>
 
 <style>
   h1 {
