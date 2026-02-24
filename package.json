@@ -19,6 +19,7 @@
     "clsx": "^2.1.1",
     "phosphor-astro": "^2.1.0",
     "radix-ui": "^1.4.3",
+    "resend": "^6.9.2",
     "tailwind-merge": "^3.4.1",
     "tailwindcss": "^4.1.18",
     "zod": "^3.25.76"
