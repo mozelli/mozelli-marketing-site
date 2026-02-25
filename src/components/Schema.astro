@@ -1,0 +1,48 @@
+---
+// src/components/Schema.astro
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService", // Ideal para Agências de Marketing
+  name: "Mozelli Marketing",
+  image: "https://www.mozellimarketing.com.br/logo.png", // Use URL absoluta
+  "@id": "https://www.mozellimarketing.com.br",
+  url: "https://www.mozellimarketing.com.br",
+  telephone: "+5531998855602", // Seu telefone internacionalizado
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Rua Joaquim Teixeira Dias, 710",
+    addressLocality: "Belo Horizonte",
+    addressRegion: "MG",
+    postalCode: "30626-620",
+    addressCountry: "BR",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: -20.003458992638304, // Opcional: coordenadas reais
+    longitude: -44.01265526863013,
+  },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+    ],
+    opens: "09:00",
+    closes: "19:00",
+  },
+  sameAs: [
+    "https://www.instagram.com/mozelli.marketing",
+    "https://www.linkedin.com/company/facebook.mozelli.marketing",
+  ],
+};
+---
+
+<script
+  type="application/ld+json"
+  is:inline
+  set:html={JSON.stringify(schema)}
+/>
