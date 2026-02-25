@@ -7,6 +7,8 @@ import vercel from "@astrojs/vercel";
 
 import sitemap from "@astrojs/sitemap";
 
+import partytown from "@astrojs/partytown";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://www.mozellimarketing.com.br",
@@ -21,13 +23,11 @@ export default defineConfig({
     },
   },
 
-  integrations: [
-    sitemap({
-      lastmod: new Date(),
-      changefreq: "weekly",
-      priority: 0.7,
-    }),
-  ],
+  integrations: [sitemap({
+    lastmod: new Date(),
+    changefreq: "weekly",
+    priority: 0.7,
+  }), partytown()],
   adapter: vercel({
     webAnalytics: {
       enabled: false,
