@@ -32,12 +32,21 @@ export default defineConfig({
     partytown({
       config: {
         forward: ["dataLayer.push", "fbq", "gtag"],
-        // Adicione isso para evitar que o worker tente acessar APIs experimentais
-        loadScriptsOnMainThread: ["https://maps.googleapis.com/maps/api/js"],
+        proxyArgs: {
+          proxyUrl: "/api/proxy", // Criaremos essa rota a seguir
+        },
         resolveUrl: (url) => {
-          if (url.hostname.includes("google-analytics.com")) {
-            return url;
+          const facebookDomain = "connect.facebook.net";
+          if (url.hostname === facebookDomain) {
+            const proxyUrl = new URL(
+              "https://www.mozellimarketing.com.br/api/proxy",
+            );
+            proxyUrl.searchParams.append("url", url.href);
+            return proxyUrl;
           }
+          /*if (url.hostname.includes("google-analytics.com")) {
+            return url;
+          }*/
           return url;
         },
       },
