@@ -32,6 +32,12 @@ export default defineConfig({
     partytown({
       config: {
         forward: ["dataLayer.push", "fbq", "gtag", "google"],
+        resolveUrl: (url) => {
+          if (url.hostname.includes("google-analytics.com")) {
+            return url;
+          }
+          return url;
+        },
       },
     }),
   ],
