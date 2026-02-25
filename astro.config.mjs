@@ -35,7 +35,7 @@ export default defineConfig({
     imagesConfig: {
       sizes: [320, 640, 1200],
       domains: [],
-      formats: ["image/webp", "image/avif"],
+      formats: ["image/avif", "image/webp"],
     },
   }),
 });
