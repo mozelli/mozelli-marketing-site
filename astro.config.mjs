@@ -23,11 +23,18 @@ export default defineConfig({
     },
   },
 
-  integrations: [sitemap({
-    lastmod: new Date(),
-    changefreq: "weekly",
-    priority: 0.7,
-  }), partytown()],
+  integrations: [
+    sitemap({
+      lastmod: new Date(),
+      changefreq: "weekly",
+      priority: 0.7,
+    }),
+    partytown({
+      config: {
+        forward: ["dataLayer.push", "fbq", "gtag"],
+      },
+    }),
+  ],
   adapter: vercel({
     webAnalytics: {
       enabled: false,
