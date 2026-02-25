@@ -13,18 +13,82 @@ import MapPin from "phosphor-astro/MapPinFill.astro";
 import SocialIcon from "../ui/SocialIcon.astro";
 ---
 
-<footer class="py-16 bg-secondary">
-  <Container />
-</footer>
+<footer class="py-16 bg-secondary md:px-10">
+  <Container>
+    <div
+      class="flex flex-col md:grid md:grid-cols-2 md:grid-rows-2 lg:grid-cols-3 lg:grid-rows-2"
+    >
+      <div class="flex flex-col px-4">
+        <h2 class="text-lg font-bold text-secondary-foreground pb-4">
+          Siga nossas páginas
+        </h2>
+        <div class="flex gap-4">
+          <SocialIcon link="#"><FacebookLogo class="w-10 h-auto" /></SocialIcon>
+          <SocialIcon link="#"><InstagramLogo class="w-10 h-auto" /></SocialIcon
+          >
+        </div>
+      </div>
+      <div class="flex flex-col px-4 py-16 md:py-0">
+        <h2 class="text-lg font-bold text-secondary-foreground pb-4">
+          Contatos
+        </h2>
+        <ul>
+          <li class="flex items-center gap-2 pb-4 text-primary">
+            <PhoneIcon class="w-7 h-auto text-primary" /><a
+              href="tel:+5531998855602"
+              class="text-secondary-foreground text-sm">+55 (31) 9 9885-5602</a
+            >
+          </li>
+          <li class="flex items-center gap-2 pb-4">
+            <EnvelopeSimple class="w-7 h-auto text-primary" />
+            <a
+              href="mailto:contato@mozellimarketing.com.br"
+              class="text-secondary-foreground text-sm"
+              >contato@mozellimarketing.com.br</a
+            >
+          </li>
+          <li class="flex items-center gap-2">
+            <MapPin class="w-7 h-auto text-primary" />
+            <address class="text-secondary-foreground text-sm">
+              Rua Joaquim Teixeira Dias, 710 <br />Cardoso, Belo Horizonte-MG <br
+              />30626-620
+            </address>
+          </li>
+        </ul>
+      </div>
+      <div class="flex flex-col">
+        <h2 class="text-lg font-bold text-secondary-foreground pb-4">
+          Localização
+        </h2>
+        <div class="flex items-center justify-center lg:px-4">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8677.266062699025!2d-44.01846346403615!3d-20.003831935699427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa6bc2db28ee555%3A0xa17568c5cec3af0b!2sR.%20Joaquim%20Teixeira%20Dias%2C%20710%20-%20Cardoso%2C%20Belo%20Horizonte%20-%20MG%2C%2030626-620!5e0!3m2!1spt-BR!2sbr!4v1771353387860!5m2!1spt-BR!2sbr"
+            width="350"
+            height="200"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="flex flex-col items-center justify-center lg:pt-4">
+          <p class="px-4 pt-8 md:pt-0 text-sm">
+            <a href="#" class="text-blue-700">Política de privacidade </a>
+          </p>
+          <p class="px-4 pt-8 md:pt-0 text-sm">©2026 Mozelli Marketing</p>
+          <p class="px-4 md:pt-0 text-sm">Todos os direitos reservados</p>
+        </div>
+      </div>
+    </div>
+  </Container>
 
-<style>
-  .myFont {
-    font-family: "Conthrax";
-  }
-</style>
+  <style>
+    .myFont {
+      font-family: "Conthrax";
+    }
+  </style>
 
-{
-  /* 
+  {
+    /* 
 <div class="grid grid-cols-4 grid-rows-1 gap-16">
       <div class="flex">
         <div class="flex flex-col pb-2">
@@ -104,4 +168,5 @@ import SocialIcon from "../ui/SocialIcon.astro";
     </div>
 
 */
-}
+  }
+</footer>

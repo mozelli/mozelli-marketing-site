@@ -1,52 +1,38 @@
 ---
+import { Image } from "astro:assets";
 import Container from "../../components/ui/layouts/Container.astro";
-import LeadForm from "../ui/layouts/LeadForm.astro";
+import HeroImage from "../../../public/images/imagem-hero-mozelli-marketing.jpg";
 ---
 
-<div class="bg-background py-10 px-3 w-full">
+<div
+  class="bg-background px-3 flex flex-col items-center justify-center w-full h-dvh"
+>
   <Container>
     <section>
-      <div class="flex">
-        <div class="w-full flex flex-col">
-          <h2 class="text-xl
-          text-primary
-          font-semibold">
-            Seu site não é apenas um link.
-
-            <br /><br /><span
-              class="text-5xl md:text-7xl font-black tracking-tight
-           bg-linear-to-r from-primary/60 via-primary to-primary/60
-           bg-clip-text text-transparent"
-            >
-              É a sua maior vitrine!
-            </span>
-          </h2>
-          <p class="text-foreground font-medium pt-6">
-            Criamos <strong class="text-primary">Sites Institucionais</strong>, <strong
-              class="text-primary">Página de Venda</strong
-            >, <strong class="text-primary">Landing Pages</strong> e
-            <strong class="text-primary">Blogs</strong> de alta performance, otimizados
-            para SEO e 100% responsivos. Design exclusivo para destacar sua marca
-            no digital.
-          </p>
-          <div class="flex justify-center gap-9 pt-6">
-            <a href="#solucoes" class="w-full">
-              <button
-                class="flex items-center justify-center gap-2 px-5 py-3 w-full text-sm font-semibold bg-accent/80 hover:bg-accent text-accent-foreground hover:cursor-pointer border rounded-sm uppercase"
-              >
-                Soluções
-              </button>
-            </a>
-            <a href="#servicos" class="w-full">
-              <button
-                class="px-5 py-3 w-full text-sm font-semibold bg-secondary/80 hover:bg-secondary text-secondary-foreground hover:cursor-pointer border rounded-sm uppercase"
-              >
-                SERVIÇOS
-              </button>
-            </a>
-          </div>
+      <div class="md:flex md:items-center md:justify-center">
+        <h2
+          class="text-3xl lg:text-5xl xl:text-7xl text-center md:text-right font-extrabold text-primary w-full md:pl-10 py-4"
+        >
+          Ser encontrado é o que <span class="text-blue-500">traz o lucro</span
+          >.
+        </h2>
+        <div
+          class="flex items-center md:text-left lg:text-right justify-center md:block w-full xl:w-[60%]"
+        >
+          <Image
+            src={HeroImage}
+            alt="Imagem de um celular mostrando o resultado de uma pesquisa no google."
+            class="w-[70%] xl:w-[70%] h-auto"
+          />
         </div>
       </div>
+
+      <p
+        class="text-gray-500 font-semibold text-center pt-16 md:px-10 xl:text-lg"
+      >
+        Construímos a infraestrutura digital completa para que sua empresa seja
+        a autoridade número 1 da sua região.
+      </p>
     </section>
   </Container>
 </div>

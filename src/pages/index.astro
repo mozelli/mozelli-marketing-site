@@ -6,20 +6,20 @@ import Products from "../components/sections/Products.astro";
 import Solutions from "../components/sections/Solutions.astro";
 import Hero from "../components/sections/Hero.astro";
 import Layout from "../layouts/Layout.astro";
-import Container from "../components/ui/layouts/Container.astro";
+import Pilares from "../components/sections/Pilares.astro";
+import SaudeDigitalCTA from "../components/sections/SaudeDigitalCTA.astro";
 ---
 
 <Layout>
   <div
-    class="bg-white/50 backdrop-blur-md border-b shadow-sm fixed w-full left-0 top-0 z-50"
+    class="bg-white/50 backdrop-blur-md border-b border-b-gray-200 shadow-sm fixed w-full left-0 top-0 z-50"
   >
     <Header />
   </div>
   <main class="pt-24 w-full">
     <Hero />
-    <Solutions />
-    <Products />
-    <Metodology />
+    <Pilares />
+    <SaudeDigitalCTA />
   </main>
   <div class="">
     <Footer />

@@ -1,0 +1,31 @@
+---
+import Container from "../ui/layouts/Container.astro";
+import LeadForm from "../ui/layouts/LeadForm.astro";
+---
+
+<div class="w-full bg-background pt-8 pb-16 px-3" id="servicos">
+  <Container>
+    <section>
+      <h2
+        class="text-primary text-center text-2xl md:text-3xl lg:text-5xl font-extrabold px-7 md:px-40"
+      >
+        Como está a saúde digital da sua empresa hoje?
+      </h2>
+      <p
+        class="text-center py-7 xl:py-16 px-3 text-red-800 md:text-center lg:text-xl md:px-40"
+      >
+        Não gaste dinheiro com anúncios antes de saber se sua base está sólida.
+      </p>
+      <p
+        class="text-center px-3 pb-7 md:px-40 xl:pb-16 md:text-center lg:text-xl"
+      >
+        Nós vamos analisar seu site atual (ou a falta de um), seu posicionamento
+        no Google e o que seus concorrentes estão fazendo.
+      </p>
+
+      <div class="w-full">
+        <LeadForm />
+      </div>
+    </section>
+  </Container>
+</div>
