@@ -8,6 +8,20 @@ import Hero from "../components/sections/Hero.astro";
 import Layout from "../layouts/Layout.astro";
 import Pilares from "../components/sections/Pilares.astro";
 import SaudeDigitalCTA from "../components/sections/SaudeDigitalCTA.astro";
+import FAC from "../components/sections/FAC.astro";
+
+const faqData = [
+  {
+    question: "Como a Mozelli Marketing ajuda minha empresa a vender mais?",
+    answer:
+      "Utilizamos estratégias de tráfego pago (Google e Meta Ads) aliadas a landing pages de alta conversão para atrair leads qualificados.",
+  },
+  {
+    question: "Quanto tempo leva para ver os primeiros resultados?",
+    answer:
+      "Em campanhas de tráfego pago, os resultados podem aparecer nas primeiras 48 horas após a ativação e otimização inicial.",
+  },
+];
 ---
 
 <Layout>
@@ -20,6 +34,7 @@ import SaudeDigitalCTA from "../components/sections/SaudeDigitalCTA.astro";
     <Hero />
     <Pilares />
     <SaudeDigitalCTA />
+    <FAC items={faqData} />
   </main>
   <div class="">
     <Footer />

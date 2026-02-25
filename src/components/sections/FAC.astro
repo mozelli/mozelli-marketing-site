@@ -1,0 +1,82 @@
+---
+// src/components/FAQ.astro
+interface Question {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: Question[];
+}
+
+const { items } = Astro.props;
+
+// Gerando o JSON-LD dinamicamente
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: items.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
+};
+---
+
+<script
+  type="application/ld+json"
+  is:inline
+  set:html={JSON.stringify(faqSchema)}
+/>
+
+<section class="max-w-3xl mx-auto my-12 px-4">
+  <h2 class="text-3xl font-bold mb-8 text-center">Perguntas Frequentes</h2>
+  <div class="space-y-4">
+    {
+      items.map((item) => (
+        <details class="group border-b border-gray-200 pb-4 cursor-pointer">
+          <summary class="flex justify-between items-center font-medium list-none text-lg">
+            <span>{item.question}</span>
+            <span class="transition group-open:rotate-180">
+              <svg
+                fill="none"
+                height="24"
+                shape-rendering="geometricPrecision"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </span>
+          </summary>
+          <p class="text-gray-600 mt-3 group-open:animate-fadeIn">
+            {item.answer}
+          </p>
+        </details>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+</style>
