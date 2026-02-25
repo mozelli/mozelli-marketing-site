@@ -30,6 +30,7 @@ export const POST: APIRoute = async ({ request }) => {
         name: result.data.name,
         email: result.data.email,
         site: result.data.site,
+        empresa: result.data.enterprise,
         ddd: result.data.ddd,
         whatsapp: result.data.whatsapp,
         business: result.data.business,
@@ -41,7 +42,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     // 3. (Opcional) Aqui você poderia disparar o e-mail do Resend também...
 
-    const { name, email, site, ddd, whatsapp, business, metadata } =
+    const { name, email, site, enterprise, ddd, whatsapp, business, metadata } =
       result.data;
     const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
@@ -58,6 +59,7 @@ export const POST: APIRoute = async ({ request }) => {
         <p><strong>Nome:</strong> ${name}<p>
         <p><strong>E-mail:</strong> ${email}<p>
         <p><strong>Site:</strong> ${site}<p>
+        <p><strong>Empresa:</strong> ${enterprise}<p>
         <p><strong>DDD:</strong> ${ddd}<p>
         <p><strong>WhatsApp:</strong> ${whatsapp}<p>
         <p><strong>Ramo de atividade:</strong> ${business}<p>
