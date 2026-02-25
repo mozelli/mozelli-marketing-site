@@ -1,8 +1,4 @@
 ---
-// Aqui você pode definir os IDs via variáveis de ambiente para maior segurança
-const GOOGLE_ADS_ID = "AW-123456789";
-const META_PIXEL_ID = "987654321";
-
 import "../styles/global.css";
 import "@fontsource/noto-sans-sora-sompeng";
 import siteConfig from "../config/siteConfig.json";
@@ -15,6 +11,7 @@ const metadata = siteConfig[0].matadata;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="noindex, nofollow" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
