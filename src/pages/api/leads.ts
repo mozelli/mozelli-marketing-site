@@ -30,7 +30,7 @@ export const POST: APIRoute = async ({ request }) => {
         name: result.data.name,
         email: result.data.email,
         site: result.data.site,
-        empresa: result.data.enterprise,
+        enterprise: result.data.enterprise,
         ddd: result.data.ddd,
         whatsapp: result.data.whatsapp,
         business: result.data.business,
