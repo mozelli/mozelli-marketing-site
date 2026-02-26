@@ -1,10 +1,7 @@
 ---
 import "../styles/global.css";
 import "@fontsource/noto-sans-sora-sompeng";
-import siteConfig from "../config/siteConfig.json";
 import Schema from "../components/Schema.astro";
-
-const metadata = siteConfig[0].matadata;
 ---
 
 <!doctype html>
@@ -12,8 +9,8 @@ const metadata = siteConfig[0].matadata;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <link rel="icon" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
     <meta
       name="description"
@@ -71,7 +68,7 @@ const metadata = siteConfig[0].matadata;
       gtag("config", "G-7VR6ZECS5V");
     </script>
     <Schema />
-    <title>{metadata.title}</title>
+    <title>Mozelli Marketing</title>
   </head>
   <body class="w-full h-screen">
     <slot />

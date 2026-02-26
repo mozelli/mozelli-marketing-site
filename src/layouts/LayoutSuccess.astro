@@ -1,9 +1,6 @@
 ---
 import "../styles/global.css";
 import "@fontsource/noto-sans-sora-sompeng";
-import siteConfig from "../config/siteConfig.json";
-
-const metadata = siteConfig[0].matadata;
 ---
 
 <!doctype html>
@@ -11,11 +8,15 @@ const metadata = siteConfig[0].matadata;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <link rel="icon" href="/favicon.png" />
     <meta name="robots" content="noindex, nofollow" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-    <title>Parabéns! | {metadata.title}</title>
+    <meta
+      name="description"
+      content="A Mozelli Marketing ajuda sua empresa a escalar vendas através de tráfego pago, SEO e alta conversão. Estratégias personalizadas para o seu crescimento."
+    />
+    <title>Parabéns! | Mozelli Marketing</title>
   </head>
   <body class="w-full h-screen">
     <slot />
