@@ -1,109 +1,187 @@
 ---
 import { Image } from "astro:assets";
 import Container from "../ui/layouts/Container.astro";
-import ImageSites from "../../../public/images/exemplos-de-sites-institucionais.jpg";
-import ImageGoogleMeuNegocio from "../../../public/images/google-meu-negocio.jpg";
-import ImageSEOLocal from "../../../public/images/seo-local.png";
-import ListBox from "../ui/ListBox.astro";
+import SitesLandingPagesBlogs from "../../assets/sites-landing-pages-blogs.jpg";
+import GoogleMeuNegocio from "../../assets/google-meu-negocio.png";
+import HospedagemManutencao from "../../assets/hospedagem-e-manutencao.jpg";
+import GoogleSearch from "../../assets/google-search.jpg";
 ---
 
-<div class="w-full py-16" id="solucoes">
+<div class="w-full lg:px-8" id="solucoes">
   <Container>
     <section>
-      <div class="flex flex-col">
-        <h2 class="text-primary text-center text-2xl font-extrabold px-9">
-          Os 3 Pilares da Sua <span class="text-blue-500">Presença Digital</span
-          >
+      <div class="flex flex-col w-full">
+        <h2
+          class="text-primary text-center text-2xl md:text-3xl lg:text-5xl font-extrabold px-7 md:px-40 md:pt-4 md:pb-12"
+        >
+          Nossas Soluções
         </h2>
-        <h3 class="text-center text-lg text-gray-500 font-bold py-7">
-          1. O Site - Construção de Autoridade
-        </h3>
-        <div class="flex justify-center">
-          <Image
-            src={ImageSites}
-            alt="Ilustração com alguns sites institucionais."
-            class="w-full md:max-w-[60%] h-auto"
-          />
-        </div>
-        <div class="flex justify-center">
-          <p class="pt-7 px-4 md:px-0 w-full md:max-w-[70%]">
-            Criamos um site institucional moderno, rápido e totalmente adaptado
-            para celulares, com integração direta ao seu WhatsApp para facilitar
-            a venda imediata.
-          </p>
-        </div>
-
-        <h3 class="text-center text-lg text-gray-500 font-bold pt-16 pb-7">
-          2. Google Meu Negócio - Localização Estratégica
-        </h3>
-        <div class="flex justify-center">
-          <Image
-            src={ImageGoogleMeuNegocio}
-            alt="Ilustração com alguns símbolo do Google como o logo, Google Maps, Google Meu Negócio."
-            class="w-full md:max-w-[70%] h-auto"
-          />
-        </div>
-        <div class="flex justify-center">
-          <p class="pt-7 px-4 md:px-0 w-full md:max-w-[70%]">
-            Configuramos sua empresa para aparecer no topo das buscas locais
-            (mapas), garantindo que quem procura pelo seu serviço te encontre
-            antes da concorrência.
-          </p>
-        </div>
-
-        <h3 class="text-center text-lg text-gray-500 font-bold pt-16 pb-7">
-          3. SEO Local - Inteligência de Busca
-        </h3>
-        <div class="flex justify-center">
-          <Image
-            src={ImageSEOLocal}
-            alt="Ilustração com alguns sites institucionais."
-            class="w-full max-w-[90%] md:max-w-[60%] h-auto"
-          />
-        </div>
-        <div class="flex justify-center">
-          <p class="pt-7 px-4 md:px-0 w-full md:max-w-[70%]">
-            Aplicamos técnicas para que o Google entenda que você é a melhor
-            solução, usando conteúdo estratégico que educa seu cliente e gera
-            confiança.
-          </p>
+        <div class="lg:grid lg:grid-cols-2 lg:grid-rows-2">
+          <div class="px-8 md:pb-16 md:px-0 w-full md:mx-auto md:flex lg:px-8">
+            <div class="p-2">
+              <Image
+                src={SitesLandingPagesBlogs}
+                width={320}
+                height={213}
+                alt="Uma pessoa utilizando um laptop com website aberto na tela enquanto outra pessoa segura um smartphone exibindo o mesmo website, em um ambiente interno de trabalho."
+                loading="lazy"
+                format="webp"
+                quality="mid"
+                class="rounded-md md:m-auto"
+              />
+              <h3 class="text-center text-2xl font-bold text-gray-600 py-4">
+                Sites, Landing Pages e Blogs
+              </h3>
+              <p
+                class="text-sm xl:text-lg pb-2 md:text-center md:px-40 lg:px-8"
+              >
+                <strong
+                  >Sua empresa aberta 24h com foco total em conversão.</strong
+                >
+              </p>
+              <p
+                class="md:text-center text-gray-600 md:px-40 lg:px-0 xl:text-lg"
+              >
+                Criamos desde <strong>Sites Institucionais</strong> completos até
+                <strong>Landing Pages</strong> de alta performance para campanhas
+                específicas.
+              </p>
+              <p
+                class="md:text-center text-gray-600 md:px-40 lg:px-0 xl:text-lg"
+              >
+                Desenvolvemos a estrutura de <strong>Blog</strong> para que sua empresa
+                publique conteúdos profundos e se torne uma autoridade no mercado.
+              </p>
+            </div>
+          </div>
+          <div class="px-8 md:pb-16 md:px-0 w-full md:mx-auto md:flex lg:px-8">
+            <div class="p-2">
+              <Image
+                src={GoogleMeuNegocio}
+                width={320}
+                height={213}
+                alt="Imagem do logotipo do Google Meu Negócio"
+                loading="lazy"
+                format="webp"
+                quality="mid"
+                class="rounded-md md:m-auto"
+              />
+              <h3 class="text-center text-2xl font-bold text-gray-600 py-4">
+                Google Meu Negócio
+              </h3>
+              <p
+                class="text-sm xl:text-lg pb-2 md:text-center md:px-40 lg:px-8"
+              >
+                <strong
+                  >Apareça no mapa e conquiste a confiança de quem está por
+                  perto.</strong
+                >
+              </p>
+              <p
+                class="md:text-center text-gray-600 md:px-40 lg:px-0 xl:text-lg"
+              >
+                Configuramos seu perfil profissional para que sua empresa
+                apareça no topo das buscas do Google.
+              </p>
+              <p
+                class="md:text-center text-gray-600 md:px-40 lg:px-0 xl:text-lg"
+              >
+                Organizamos seus horários, serviços e fotos para passar
+                credibilidade imediata aos novos clientes.
+              </p>
+              <p
+                class="md:text-center text-gray-600 md:px-40 lg:px-0 xl:text-lg"
+              >
+                Orientamos sua empresa a receber avaliações positivas,
+                transformando bons atendimentos em novos negócios.
+              </p>
+            </div>
+          </div>
+          <div class="px-8 md:px-0 md:pb-16 w-full md:mx-auto md:flex lg:px-8">
+            <div class="p-2">
+              <Image
+                src={HospedagemManutencao}
+                width={320}
+                height={213}
+                alt="Imagem de um engenheiro realizando manutenção em um servidor web."
+                loading="lazy"
+                format="webp"
+                quality="mid"
+                class="rounded-md md:m-auto"
+              />
+              <h3 class="text-center text-2xl font-bold text-gray-600 py-4">
+                Hospedagem e Manutenção
+              </h3>
+              <p
+                class="text-sm xl:text-lg pb-2 md:text-center md:px-40 lg:px-8"
+              >
+                <strong
+                  >Segurança e velocidade para você não peder nenhum negócio.</strong
+                >
+              </p>
+              <p
+                class="md:text-center text-gray-600 md:px-40 lg:px-0 xl:text-lg"
+              >
+                Deixe a parte técnica com a gente.
+              </p>
+              <p
+                class="md:text-center text-gray-600 md:px-40 lg:px-0 xl:text-lg"
+              >
+                Garantimos que seu site esteja sempre no ar e seguro.
+              </p>
+              <p
+                class="md:text-center text-gray-600 md:px-40 lg:px-0 xl:text-lg"
+              >
+                Cuidamos das atualizações necessárias para que sua página
+                continue moderna e funcional. Infraestrutura de alta performance
+                para que seu site carregue rápido em qualquer lugar.
+              </p>
+            </div>
+          </div>
+          <div class="px-8 md:pb-16 md:px-0 w-full md:mx-auto md:flex lg:px-8">
+            <div class="p-2">
+              <Image
+                src={GoogleSearch}
+                width={320}
+                height={213}
+                alt="Imagem do campo de busca na pesquisa do Google."
+                loading="lazy"
+                format="webp"
+                quality="mid"
+                class="rounded-md md:m-auto border border-gray-300"
+              />
+              <h3 class="text-center text-2xl font-bold text-gray-600 py-4">
+                SEO Local
+              </h3>
+              <p
+                class="text-sm xl:text-lg pb-2 md:text-center md:px-40 lg:px-8"
+              >
+                <strong
+                  >Apareça para quem está procurando pelo seu serviço agora.</strong
+                >
+              </p>
+              <p
+                class="md:text-center text-gray-600 md:px-40 lg:px-0 xl:text-lg"
+              >
+                Colocamos sua empresa/negócio em destaque nas buscas do Google e
+                no Google Maps da sua região.
+              </p>
+              <p
+                class="md:text-center text-gray-600 md:px-40 lg:px-0 xl:text-lg"
+              >
+                Criamos textos estratégicos que atraem novos visitantes e
+                mostram que você é a melhor escolha.
+              </p>
+              <p
+                class="md:text-center text-gray-600 md:px-40 lg:px-0 xl:text-lg"
+              >
+                Monitoramos seus resultados mensalmente para garantir que você
+                esteja sempre à frente da concorrência.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   </Container>
 </div>
-
-<style>
-  .myFont {
-    font-family: "Conthrax";
-  }
-</style>
-
-{
-  /*
-
-<div class="flex pt-8">
-        <div class="w-1/2">
-          <Image
-            src={ImageSection}
-            alt="Um programador em frente a um computador configurando um website."
-            width={500}
-            height={463}
-            class="rounded-md"
-          />
-        </div>
-        <div class="w-1/2">
-          <p class="text-secondary-foreground">
-            Hoje, o site é o <strong class="text-primary"
-              >principal ponto de decisão do cliente</strong
-            >. Antes de comprar, contratar ou entrar em contato, ele pesquisa,
-            compara e analisa sua presença digital.
-          </p>
-          <p class="text-secondary-foreground">
-            Um site profissional permite que você:
-          </p>
-          <ListBox />
-        </div>
-      </div>
-*/
-}
