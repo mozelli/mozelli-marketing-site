@@ -44,6 +44,15 @@ export default defineConfig({
             proxyUrl.searchParams.append("url", url.href);
             return proxyUrl;
           }
+          // 2. Aqui está o truque: Se o Partytown tentar buscar algo
+          // relacionado ao Privacy Sandbox, retornamos a URL original
+          // para que ele saia do "Worker Sandbox" e não dispare o aviso.
+          if (
+            url.href.includes("attribution_reporting") ||
+            url.href.includes("shared_storage")
+          ) {
+            return url;
+          }
           /*if (url.hostname.includes("google-analytics.com")) {
             return url;
           }*/
