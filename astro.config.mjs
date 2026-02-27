@@ -32,9 +32,9 @@ export default defineConfig({
     partytown({
       config: {
         forward: ["dataLayer.push", "fbq", "gtag"],
-        proxyArgs: {
+        /*proxyArgs: {
           proxyUrl: "/api/proxy", // Criaremos essa rota a seguir
-        },
+        },*/
         resolveUrl: (url) => {
           const facebookDomain = "connect.facebook.net";
           if (url.hostname === facebookDomain) {
@@ -44,14 +44,14 @@ export default defineConfig({
             proxyUrl.searchParams.append("url", url.href);
             return proxyUrl;
           }
-          // 2. Aqui está o truque: Se o Partytown tentar buscar algo
-          // relacionado ao Privacy Sandbox, retornamos a URL original
-          // para que ele saia do "Worker Sandbox" e não dispare o aviso.
+          // Bloqueio de telemetria das APIs obsoletas (SharedStorage/Attribution)
+          // Isso ajuda a silenciar os avisos que derrubam as Boas Práticas
           if (
             url.href.includes("attribution_reporting") ||
-            url.href.includes("shared_storage")
+            url.href.includes("shared_storage") ||
+            url.href.includes("privacy-sandbox")
           ) {
-            return url;
+            return new URL("data:text/javascript;base64,CWV2YWwoIiIpOw=="); // Retorna um script vazio
           }
           /*if (url.hostname.includes("google-analytics.com")) {
             return url;
