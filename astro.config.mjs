@@ -32,9 +32,6 @@ export default defineConfig({
     partytown({
       config: {
         forward: ["dataLayer.push", "fbq", "gtag"],
-        /*proxyArgs: {
-          proxyUrl: "/api/proxy", // Criaremos essa rota a seguir
-        },*/
         resolveUrl: (url) => {
           const facebookDomain = "connect.facebook.net";
           if (url.hostname === facebookDomain) {
