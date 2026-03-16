@@ -1,0 +1,27 @@
+---
+import "../styles/global.css";
+import "@fontsource/noto-sans-sora-sompeng";
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <link rel="icon" href="/favicon.png" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content="Descrição do artigo" />
+    <title>Blog | Mozelli Marketing</title>
+  </head>
+  <body class="w-full h-screen">
+    <slot />
+  </body>
+</html>
+
+<style>
+  body {
+    font-family: "Noto Sans Sora Sompeng";
+  }
+</style>
