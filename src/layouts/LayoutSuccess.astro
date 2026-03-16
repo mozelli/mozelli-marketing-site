@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import "@fontsource/noto-sans-sora-sompeng";
+import Analytics from "@vercel/analytics/astro";
 ---
 
 <!doctype html>
@@ -17,6 +18,7 @@ import "@fontsource/noto-sans-sora-sompeng";
       content="A Mozelli Marketing ajuda sua empresa a escalar vendas através de tráfego pago, SEO e alta conversão. Estratégias personalizadas para o seu crescimento."
     />
     <title>Parabéns! | Mozelli Marketing</title>
+    <Analytics />
   </head>
   <body class="w-full h-screen">
     <slot />

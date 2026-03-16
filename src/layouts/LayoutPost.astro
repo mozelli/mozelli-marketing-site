@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import "@fontsource/noto-sans-sora-sompeng";
 import BlogSchema from "../components/BlogSchema.astro";
+import Analytics from "@vercel/analytics/astro";
 const { description, post } = Astro.props;
 ---
 
@@ -87,6 +88,7 @@ const { description, post } = Astro.props;
     </script>
     <BlogSchema post={post} slot="head" />
     <title>{post.data.title}</title>
+    <Analytics />
   </head>
   <body class="w-full h-screen">
     <slot />

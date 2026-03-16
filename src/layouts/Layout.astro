@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import "@fontsource/noto-sans-sora-sompeng";
 import Schema from "../components/Schema.astro";
+import Analytics from "@vercel/analytics/astro";
 const { description, title } = Astro.props;
 ---
 
@@ -67,6 +68,7 @@ const { description, title } = Astro.props;
     </script>
     <Schema />
     <title>{title}</title>
+    <Analytics />
   </head>
   <body class="w-full h-screen">
     <slot />
