@@ -2,7 +2,7 @@
 import "../styles/global.css";
 import "@fontsource/noto-sans-sora-sompeng";
 import BlogSchema from "../components/BlogSchema.astro";
-const { description, title, post } = Astro.props;
+const { description, post } = Astro.props;
 ---
 
 <!doctype html>
@@ -10,6 +10,26 @@ const { description, title, post } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
+    <meta property="og:title" content={post.data.title} />
+    <meta property="og:description" content={description} />
+    <meta
+      property="og:image"
+      content={new URL(post.data.thumbnail.src, Astro.url)}
+    />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content={new URL(Astro.url.pathname, Astro.site)}
+    />
+    <meta property="twitter:title" content={post.data.title} />
+    <meta property="twitter:description" content={description} />
+    <meta
+      property="twitter:image"
+      content={new URL(post.data.thumbnail.src, Astro.url)}
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <link rel="icon" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
@@ -66,7 +86,7 @@ const { description, title, post } = Astro.props;
       gtag("config", "G-7VR6ZECS5V");
     </script>
     <BlogSchema post={post} slot="head" />
-    <title>{title}</title>
+    <title>{post.data.title}</title>
   </head>
   <body class="w-full h-screen">
     <slot />
