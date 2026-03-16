@@ -1,11 +1,8 @@
 ---
 import "../styles/global.css";
 import "@fontsource/noto-sans-sora-sompeng";
-import Schema from "../components/Schema.astro";
-<<<<<<< HEAD
-=======
-const { description, title } = Astro.props;
->>>>>>> feat/develop
+import BlogSchema from "../components/BlogSchema.astro";
+const { description, title, post } = Astro.props;
 ---
 
 <!doctype html>
@@ -68,12 +65,8 @@ const { description, title } = Astro.props;
 
       gtag("config", "G-7VR6ZECS5V");
     </script>
-    <Schema />
-<<<<<<< HEAD
-    <title>Mozelli Marketing</title>
-=======
+    <BlogSchema post={post} slot="head" />
     <title>{title}</title>
->>>>>>> feat/develop
   </head>
   <body class="w-full h-screen">
     <slot />

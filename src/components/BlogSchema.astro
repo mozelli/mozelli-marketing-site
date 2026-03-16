@@ -1,0 +1,42 @@
+---
+// src/components/Schema.astro
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props;
+const { title, description, pubDate, updatedDate, cover, author } = post.data;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: title,
+  description: description,
+  image: new URL(cover.src, Astro.site).toString(),
+  datePublished: pubDate.toISOString(),
+  ...(updatedDate && { dateModified: updatedDate.toISOString() }),
+  author: {
+    "@type": "Person",
+    name: author,
+    url: new URL("/about", Astro.site).toString(), // Ajuste conforme sua rota
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Mozelli Marketing",
+    logo: {
+      "@type": "ImageObject",
+      url: new URL("/logo.png", Astro.site).toString(),
+    },
+  },
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": canonicalURL.toString(),
+  },
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
