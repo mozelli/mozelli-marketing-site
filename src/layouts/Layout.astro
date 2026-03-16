@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import "@fontsource/noto-sans-sora-sompeng";
 import Schema from "../components/Schema.astro";
+const { description, title } = Astro.props;
 ---
 
 <!doctype html>
@@ -12,10 +13,7 @@ import Schema from "../components/Schema.astro";
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <link rel="icon" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
-    <meta
-      name="description"
-      content="A Mozelli Marketing ajuda sua empresa a escalar vendas através de tráfego pago, SEO e alta conversão. Estratégias personalizadas para o seu crescimento."
-    />
+    <meta name="description" content={description} />
     <!-- Meta Pixel Code -->
     <script is:inline type="text/partytown">
       !(function (f, b, e, v, n, t, s) {
@@ -68,7 +66,7 @@ import Schema from "../components/Schema.astro";
       gtag("config", "G-7VR6ZECS5V");
     </script>
     <Schema />
-    <title>Mozelli Marketing</title>
+    <title>{title}</title>
   </head>
   <body class="w-full h-screen">
     <slot />

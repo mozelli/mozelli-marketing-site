@@ -1,9 +1,10 @@
 ---
 import { getCollection } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
+import LayoutPost from "../../layouts/LayoutPost.astro";
 import HeaderBlog from "../../components/sections/HeaderBlog.astro";
 import LeadForm from "../../components/ui/layouts/LeadForm.astro";
 import Footer from "../../components/sections/Footer.astro";
+import BlogSchema from "../../components/BlogSchema.astro";
 import { Image } from "astro:assets";
 
 export async function getStaticPaths() {
@@ -17,7 +18,11 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 ---
 
-<Layout>
+<LayoutPost
+  description={post.data.description}
+  title={post.data.title}
+  post={post}
+>
   <HeaderBlog />
   <section>
     <article
@@ -90,4 +95,4 @@ const { Content } = await post.render();
     </div>
   </section>
   <Footer />
-</Layout>
+</LayoutPost>

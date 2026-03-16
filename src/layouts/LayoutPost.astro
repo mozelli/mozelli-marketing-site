@@ -1,6 +1,8 @@
 ---
 import "../styles/global.css";
 import "@fontsource/noto-sans-sora-sompeng";
+import BlogSchema from "../components/BlogSchema.astro";
+const { description, title, post } = Astro.props;
 ---
 
 <!doctype html>
@@ -10,10 +12,61 @@ import "@fontsource/noto-sans-sora-sompeng";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <link rel="icon" href="/favicon.png" />
-    <meta name="robots" content="noindex, nofollow" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content="Descrição do artigo" />
-    <title>Blog | Mozelli Marketing</title>
+    <meta name="description" content={description} />
+    <!-- Meta Pixel Code -->
+    <script is:inline type="text/partytown">
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js",
+      );
+      fbq("init", "2331356017344307");
+      fbq("track", "PageView");
+    </script>
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display:none"
+        src="https://www.facebook.com/tr?id=2331356017344307&ev=PageView&noscript=1"
+      /></noscript
+    >
+    <!-- End Meta Pixel Code -->
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-7VR6ZECS5V"
+      type="text/partytown"></script>
+    <script is:inline type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-7VR6ZECS5V");
+    </script>
+    <BlogSchema post={post} slot="head" />
+    <title>{title}</title>
   </head>
   <body class="w-full h-screen">
     <slot />

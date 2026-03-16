@@ -1,7 +1,9 @@
 ---
 title: "Por que Todo Negócio Precisa de um Site Profissional em 2026"
+description: "Entenda por que ter um site profissional é essencial para qualquer negócio em 2026. Veja como um site aumenta a credibilidade da empresa, melhora a presença no Google, gera leads diariamente e se torna a base de uma estratégia de marketing digital eficiente."
 author: "João Mozelli Neto"
 pubDate: "2026-03-15"
+updatedDate: "2026-03-15"
 cover: "./cover.jpg"
 thumbnail: "./thumbnail.jpg"
 ---
