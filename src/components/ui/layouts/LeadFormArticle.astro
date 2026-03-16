@@ -1,0 +1,240 @@
+---
+import siteConfig from "../../../config/siteConfig.json";
+
+const { title } = Astro.props;
+
+const metadata = "ARTICLE-LEAD-FORM," + title;
+//força um novo deploy
+---
+
+<form
+  action="/api/contact"
+  method="POST"
+  class="bg-primary rounded-md p-9"
+  id="lead-form"
+>
+  <div class="hidden" aria-hidden="true">
+    <input type="text" name="_honey" tabindex="-1" autocomplete="off" />
+  </div>
+  <input type="hidden" name="metadata" value={metadata} />
+
+  <h3 class="text-xl font-bold">Solicite uma Anãlise Gratuita!</h3>
+  <p id="form-message" class="text-sm pt-2"></p>
+
+  <div class="flex flex-col md:flex-row md:gap-8">
+    <div class="flex flex-col w-full">
+      <div class="py-2 flex flex-col">
+        <label for="name" class="text-sm font-medium text-primary-foreground"
+          >Seu nome <span>*</span></label
+        >
+        <input
+          type="text"
+          id="name"
+          name="name"
+          class="mt-1 text-sm rounded-sm border-none p-2 focus:ring-2 focus:ring-accent outline-none bg-background text-foreground"
+          required
+        />
+      </div>
+      <div class="py-2 flex flex-col">
+        <label for="email" class="text-sm font-medium text-primary-foreground"
+          >Seu melhor e-mail <span>*</span></label
+        >
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="email@dominio.com.br"
+          class="mt-1 text-sm rounded-sm border-none p-2 focus:ring-2 focus:ring-accent outline-none bg-background text-foreground"
+          required
+        />
+      </div>
+      <div class="py-2 flex flex-col">
+        <label for="site" class="text-sm font-medium text-primary-foreground"
+          >Seu site (se tiver um)</label
+        >
+        <input
+          type="text"
+          id="site"
+          name="site"
+          placeholder="seusite.com.br"
+          class="mt-1 text-sm rounded-sm border-none p-2 focus:ring-2 focus:ring-accent outline-none bg-background text-foreground"
+        />
+      </div>
+    </div>
+    <div class="flex flex-col w-full">
+      <div class="py-2 flex flex-col">
+        <label
+          for="enterprise"
+          class="text-sm font-medium text-primary-foreground"
+          >Nome da empresa/negócio</label
+        >
+        <input
+          type="text"
+          id="enterprise"
+          name="enterprise"
+          class="mt-1 text-sm rounded-sm border-none p-2 focus:ring-2 focus:ring-accent outline-none bg-background text-foreground"
+        />
+      </div>
+      <div class="py-2 flex gap-2">
+        <div class="flex flex-col">
+          <label for="ddd" class="text-sm font-medium text-primary-foreground"
+            >DDD<span>*</span></label
+          >
+          <input
+            type="text"
+            id="ddd"
+            name="ddd"
+            maxlength="2"
+            placeholder="99"
+            class="mt-1 rounded-sm w-full max-w-12 text-center border-none p-2 focus:ring-2 focus:ring-accent outline-none bg-background text-foreground text-sm"
+            required
+            inputmode="numeric"
+            pattern="[0-9]{2}"
+          />
+        </div>
+        <div class="flex flex-col">
+          <label
+            for="whatsapp"
+            class="text-sm font-medium text-primary-foreground"
+            >WhatsApp <span>*</span></label
+          >
+          <input
+            type="text"
+            name="whatsapp"
+            id="whatsapp"
+            placeholder="99999-9999"
+            class="mt-1 rounded-sm border-none p-2 focus:ring-2 focus:ring-accent outline-none bg-background text-foreground text-sm"
+            required
+            maxlength="10"
+            inputmode="numeric"
+          />
+        </div>
+      </div>
+      <div class="py-2 flex flex-col">
+        <label
+          for="business"
+          class="text-sm font-medium text-primary-foreground"
+          >Ramo de atividade <span>*</span></label
+        >
+        <select
+          name="business"
+          id="business"
+          name="business"
+          class="mt-1 rounded-sm border-none p-2 text-black focus:ring-2 focus:ring-accent outline-none appearance-none bg-white text-sm"
+          required
+        >
+          <option value="" disabled selected>Selecione</option>
+          <option value="SAUDE-E-BEM-ESTAR">Saúde e Bem-Estar</option>
+          <option value="CONSTRUCAO-E-REFORMAS">Construção e Reformas</option>
+          <option value="COMERCIO">Comércio</option>
+          <option value="ALIMENTACAO">Alimentação</option>
+          <option value="AUTOMOTIVO">Automotivo</option>
+          <option value="BELEZA">Beleza</option>
+          <option value="EDUCACAO">Educação</option>
+          <option value="HOSPEDAGEM-E-TURISMO">Turismo e Hospedagem</option>
+          <option value="INDUSTRIA">Indústria</option>
+          <option value="TECNOLOGIA">Tecnologia</option>
+          <option value="EVENTOS">Eventos</option>
+          <option value="PROFISSIONAL-LIBERAL">Profissional Liberal</option>
+          <option value="OUTROS">Outros</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="py-2 flex flex-col items-center">
+    <button
+      type="submit"
+      id="submit-btn"
+      class="uppercase w-60 hover:cursor-pointer bg-accent hover:bg-accent transition-all text-accent-foreground text-sm font-bold px-5 md:px-3 py-3 rounded-sm shadow-secondary-foreground shadow-md"
+      >Solicitar Análise Gratuita</button
+    >
+  </div>
+</form>
+
+<script>
+  import { LeadSchema } from "../../../lib/validation/lead-schema";
+
+  const form = document.getElementById("lead-form") as HTMLFormElement;
+  const btn = document.getElementById("submit-btn") as HTMLButtonElement;
+  const whatsappInput = document.getElementById("whatsapp") as HTMLInputElement;
+  const dddInput = document.getElementById("ddd") as HTMLInputElement;
+
+  // 1. MÁSCARA VISUAL (Aplica o traço enquanto o usuário digita)
+  whatsappInput?.addEventListener("input", () => {
+    let value = whatsappInput.value.replace(/\D/g, ""); // Remove tudo que não é número
+    if (value.length > 5) {
+      value = value.replace(/^(\d{5})(\d)/, "$1-$2"); // Adiciona o hífen após o 5º dígito
+    }
+    whatsappInput.value = value;
+  });
+
+  // Limita DDD apenas a números
+  dddInput?.addEventListener("input", () => {
+    dddInput.value = dddInput.value.replace(/\D/g, "");
+  });
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    // Feedback visual de carregamento
+    btn.disabled = true;
+    btn.innerText = "Enviando...";
+
+    // 1. Coleta e Limpeza dos dados
+    const formData = new FormData(form);
+    const rawData = Object.fromEntries(formData);
+
+    const dataToValidate = {
+      ...rawData,
+      whatsapp: whatsappInput.value.replace(/\D/g, ""), // Limpa traços para o Zod
+      ddd: dddInput.value.replace(/\D/g, ""),
+    };
+
+    // 2. Validação com Zod no Cliente
+    const result = LeadSchema.safeParse(dataToValidate);
+
+    if (!result.success) {
+      console.error("❌ Erro de Validação (Zod):", result.error.format()); // MOSTRA O ERRO NO CONSOLE
+
+      result.error.issues.forEach((issue) => {
+        const fieldName = issue.path[0];
+        const input = form.querySelector(`[name="${fieldName}"]`);
+        input?.classList.add("ring-2", "ring-red-500");
+      });
+
+      // Destrava o botão para o usuário tentar de novo
+      btn.disabled = false;
+      btn.innerText = "Solicitar Orçamento gratuito";
+      return;
+    }
+
+    // 3. Envio para a API
+    try {
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(result.data),
+      });
+
+      const responseData = await response.json();
+
+      if (!response.ok) {
+        // MOSTRA ERROS VINDOS DO BACKEND/SUPABASE
+        console.error("❌ Erro no Servidor (API):", responseData);
+        throw new Error(
+          responseData.message || "Erro desconhecido no servidor",
+        );
+      }
+
+      console.log("✅ Sucesso!", responseData);
+      window.location.href = "/sucesso";
+    } catch (err) {
+      console.error("🚨 Erro Crítico na Requisição:", err); // MOSTRA ERROS DE CONEXÃO
+    } finally {
+      // Sempre volta o botão ao normal
+      btn.disabled = false;
+      btn.innerText = "Solicitar Orçamento gratuito";
+    }
+  });
+</script>
